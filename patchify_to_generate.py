@@ -55,4 +55,4 @@ for msk in range(large_mask_stack.shape[0]):
             
             single_patch_mask = patches_mask[i,j,:,:]
             tiff.imwrite('patches/masks/' + 'mask_' + str(msk) + '_' + str(i)+str(j)+ ".tif", single_patch_mask)
-            single_patch_mask = single_patch_mask / 255.
+            single_patch_mask = single_patch_mask / 255. 
