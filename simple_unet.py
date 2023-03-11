@@ -11,7 +11,7 @@ from simple_unet_model import simple_unet_model   #Use normal unet model
 from keras.utils import normalize
 import os
 import cv2
-from PIL import Image
+from PIL import Image #PIL library to resize images
 import numpy as np
 from matplotlib import pyplot as plt
 
@@ -88,7 +88,7 @@ history = model.fit(X_train, y_train,
                     validation_data=(X_test, y_test), 
                     shuffle=False)
 
-#model.save('mitochondria_test.hdf5')
+model.save('mitochondria_test.hdf5')
 
 ############################################################
 #Evaluate the model
@@ -98,6 +98,8 @@ history = model.fit(X_train, y_train,
 _, acc = model.evaluate(X_test, y_test)
 print("Accuracy = ", (acc * 100.0), "%")
 
+
+#this plot can't be done if the model is not trained(if we used exisitng model hdf5)
 #plot the training and validation accuracy and loss at each epoch
 loss = history.history['loss']
 val_loss = history.history['val_loss']
@@ -144,36 +146,20 @@ test_img = X_test[test_img_number]
 ground_truth=y_test[test_img_number]
 test_img_norm=test_img[:,:,0][:,:,None]
 test_img_input=np.expand_dims(test_img_norm, 0)
-prediction = (model.predict(test_img_input)[0,:,:,0] > 0.2).astype(np.uint8)
+prediction = (model.predict(test_img_input)[0,:,:,0] > 0.5).astype(np.uint8)
 
 
 
 
-
-
-
-import numpy as np
-from matplotlib import pyplot as plt
-from patchify import patchify
-import tifffile as tiff
-
-large_image_stack = tiff.imread('testing.tif') #165 slika dimenzija 768x1024 (HxW)
-large_mask_stack = tiff.imread('testing_groundtruth.tif')
-
-large_image = large_image_stack[0]
-patches_img = patchify(large_image, (256, 256), step=256)
-single_patch_img = patches_img[0,0,:,:]
-tiff.imwrite('patches/test_images/' + '02-1_256' + ".tif", single_patch_img)
-
-test_img_other = cv2.imread('data/test_images/02-1_256.tif', 0)
+test_img_other = cv2.imread('patches/test_images/02-1_256.tif', 0)
 #test_img_other = cv2.imread('data/test_images/img8.tif', 0)
-test_img_other_norm = np.expand_dims(normalize(np.array(test_img_other), axis=1),3)
+test_img_other_norm = np.expand_dims(normalize(np.array(test_img_other), axis=1),2)
 test_img_other_norm=test_img_other_norm[:,:,0][:,:,None]
 test_img_other_input=np.expand_dims(test_img_other_norm, 0)
 
 #Predict and threshold for values above 0.5 probability
 #Change the probability threshold to low value (e.g. 0.05) for watershed demo.
-prediction_other = (model.predict(test_img_other_input)[0,:,:,0] > 0.2).astype(np.uint8)
+prediction_other = (model.predict(test_img_other_input)[0,:,:,0] > 0.5).astype(np.uint8)
 
 plt.figure(figsize=(16, 8))
 plt.subplot(231)
