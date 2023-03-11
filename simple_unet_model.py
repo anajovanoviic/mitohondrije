@@ -73,3 +73,4 @@ def simple_unet_model(IMG_HEIGHT, IMG_WIDTH, IMG_CHANNELS):
     model.summary()
     
     return model
+
