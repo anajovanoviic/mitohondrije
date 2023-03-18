@@ -10,6 +10,6 @@ In the first dataset *training.tif* there is 165 images, so in the *patches/imag
 
 *simple_unet.py* <br>
 ```
-image_dataset = np.expand_dims(normalize(np.array(image_dataset), axis=**1**),3)
+image_dataset = np.expand_dims(normalize(np.array(image_dataset), axis=1),3)
 ```
 
