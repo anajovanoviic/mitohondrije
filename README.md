@@ -10,7 +10,7 @@ In the first dataset *training.tif* there is 165 images, so in the *patches/imag
 
 *simple_unet.py* <br>
 
-By adding *axis=1* dimension of the image is expanded by 1, because we are only dealing with grayscale images, if it is colour images you would have (256,256,3)
+By adding *axis=1* dimension of the image is expanded by 1, because we are only dealing with grayscale images
 ```
 image_dataset = np.expand_dims(normalize(np.array(image_dataset), axis=1),3)
 ```
@@ -18,4 +18,6 @@ Result of the above command:
 ```
 image_dataset.shape
 ```
-Out: *(1980, 256, 256, 1)*
+Out: *(1980, 256, 256, 1)* <br>
+
+**If it is colour images you would have (256,256,3)**
