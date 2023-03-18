@@ -9,7 +9,13 @@ Above is the graphical example of one image in training.tif dataset and how it i
 In the first dataset *training.tif* there is 165 images, so in the *patches/images* folder there will be 165*12=1980 images. <br>
 
 *simple_unet.py* <br>
+
+By adding *axis=1* dimension of the image is expanded by 1, because we are only dealing with greyscale images, if it is colour images you would have (256,256,3)
 ```
 image_dataset = np.expand_dims(normalize(np.array(image_dataset), axis=1),3)
 ```
-
+Result:
+```
+image_dataset.shape
+```
+(1980, 256, 256, 1)
