@@ -14,8 +14,8 @@ By adding *axis=1* dimension of the image is expanded by 1, because we are only 
 ```
 image_dataset = np.expand_dims(normalize(np.array(image_dataset), axis=1),3)
 ```
-Result:
+Result of the above command:
 ```
 image_dataset.shape
 ```
-(1980, 256, 256, 1)
+Out: *(1980, 256, 256, 1)*
