@@ -6,4 +6,10 @@
 
 Above is the graphical example of one image in training.tif dataset and how it is divided into patches. Dimension of the patches above (256x256) are dimensions of every image inside patches/images folder. <br>
 
-In the first dataset *training.tif* there is 165 images, so in the *patches/images* folder there will be 165*12=1980 images.
+In the first dataset *training.tif* there is 165 images, so in the *patches/images* folder there will be 165*12=1980 images. <br>
+
+*simple_unet.py*
+'''
+image_dataset = np.expand_dims(normalize(np.array(image_dataset), axis=**1**),3)
+'''
+
