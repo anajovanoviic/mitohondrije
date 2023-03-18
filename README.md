@@ -4,4 +4,6 @@
 
 ![patches](https://user-images.githubusercontent.com/51513732/226105240-99ce385c-6dad-4166-a667-eb8908c380d4.jpg)
 
-Above is the graphical example of one image in training.tif dataset and how it is divided into patches. Dimension of the patches above (256x256) are dimensions of every image inside patches/images folder.
+Above is the graphical example of one image in training.tif dataset and how it is divided into patches. Dimension of the patches above (256x256) are dimensions of every image inside patches/images folder. <br>
+
+In the first dataset *training.tif* there is 165 images, so in the *patches/images* folder there will be 165*12=1980 images.
