@@ -20,4 +20,4 @@ image_dataset.shape
 ```
 Out: *(1980, 256, 256, 1)* <br>
 
-**If it is colour images you would have (256,256,3)**
+**If it is colour images you would have *(256,256,3)***
