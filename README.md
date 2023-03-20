@@ -5,4 +5,5 @@ source: Code from Sreeni, used for learning purposes - https://www.youtube.com/w
 
 Dataset: https://www.epfl.ch/labs/cvlab/data/data-em/ <br>
 
-* To enhancement graphics randomize data differently and zoom out plots (by M.R.)
+* To enhancement graphics randomize data differently and zoom out plots (by M.R.) <br>
+To run this locally unzip files inside *patches* folder
