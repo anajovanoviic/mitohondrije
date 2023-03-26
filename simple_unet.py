@@ -28,7 +28,7 @@ mask_dataset = []  #Place holders to define add labels. We will add 0 to all par
 images = os.listdir(image_directory)
 images.sort()
 for i, image_name in enumerate(images):    #Remember enumerate method adds a counter and returns the enumerate object
-    if (image_name.split('.')[1] == 'tif'):
+    if (image_name.split('.')[1] == 'tif'): # this if condition is added in case there are some bad files which are not in tif format
         #print(image_directory+image_name)
         image = cv2.imread(image_directory+image_name, 0)
         image = Image.fromarray(image)
